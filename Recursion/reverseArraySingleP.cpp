@@ -12,8 +12,9 @@ void reverseArray(int start, int size, int arr[])
 
 int main()
 {
-    int n, arr[n];
+    int n;
     cin >> n;
+    arr[n];
     for (int i = 0; i < n; i++)
         cin >> arr[i];
     reverseArray(0, n, arr);
