@@ -1,0 +1,12 @@
+Moore's voting algorithm
+
+  Thaught process of this algorithm is
+  think that if the number present in the array
+  is greater than n/2 then according to this algo it cannot reduced
+  to zero
+
+  you have to take few variable
+  if the count is 0 assign the Element to the current index
+  then check weather the next element is equal to the previous one
+  if so then increase the count if not decrease the count
+  this will work better on while loop i guess

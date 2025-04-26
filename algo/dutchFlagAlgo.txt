@@ -1,0 +1,26 @@
+Dutch National flag algo ->
+
+  This is a three pointer approach
+  condition -> a) 0 to low - 1 is 0
+               b) low to mid - 1 is 1
+               c) mid to high is random
+               d) high + 1 to n - 1 is 2
+
+  now we have to solve from mid to high - 1
+
+  there will be three cases
+  1st
+   arr[i] = 0
+
+   swap with the low and increase the low
+   mid++
+
+  2nd
+  arr[i] = 1
+
+  it is kind of sorted cause all the left element is sorted
+  so just move the mid pointer
+
+  3rd
+  arr[i] = 2
+  swap with high and decrease the pointer
