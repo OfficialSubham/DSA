@@ -1,0 +1,11 @@
+This algo states like this
+
+take a variable with minimum number possible
+take sum with 0
+start a pointer from start to end
+run a loop upto the end
+each time first add the number to the sum
+then check weather it is greater than max if so then assign it.
+then check sum is negative if so then change it to 0 cause taking
+negative forward doesnot increase the sum.
+this is how this algo works and you can find a maximum sum in an array
