@@ -1,0 +1,79 @@
+15. 3Sum
+
+Here i have to find all the triplets whose sum is zero
+they must be unique
+and the same number must not repeat
+
+Brute ->
+  Run three nested loops
+  each loop is starting next after their parent loop
+  each time check weather all the number is zero
+  if so then sort it and add it to a set cause
+  set does not add same elements
+
+TC -> O(N*N*N) * log(NlogN)
+SC -> O(N)
+
+Better ->
+  Use hash
+  Run two loops
+  inside the first loop start the hash
+  each time check weather the negative of sum of i and j
+  is present in the set if so then make a temp vector
+  add those number inside it and sort it then add to the set
+  cause set is used in order to get unique elements
+  then just add the current element in the set
+
+  At last just make a suitable return vector and add all the
+  elements inside the set
+
+TC -> O(N*N * Log M)
+SC -> O(N) + 2 O(N)
+
+Optimal ->
+  Two pointer approach
+  first sort the array
+  one is a constant pointer i
+  the other are movable one j and k
+  inside the loop check weather sum of all is zero
+  if so add to the array
+  if not check weather it is greater if so then decrease the k
+  if not increase the j
+  run it until they becomes equal or crosses each other
+  then just increase the i and start j from the next and k at last
+  also increase i until it becomes != to previous
+
+  CODE for this one ->
+    sort(nums.begin(), nums.end());
+      
+        vector<vector<int>> ans;
+        for(int i = 0; i < nums.size(); i++) {
+            if(i > 0 && nums[i] == nums[i-1]) continue;
+            int j = i + 1;
+            int k = nums.size() - 1;
+            while(j < k) {
+                int sum = nums[i] + nums[j] + nums[k];
+                if(sum < 0) {
+                    j++;
+                }
+                else if(sum > 0) {
+                    k--;
+                }
+                else {
+                    vector<int> temp = {nums[i], nums[j], nums[k]};
+                    ans.push_back(temp);
+                    j++;
+                    k--;
+                    while(j < k && nums[j] == nums[j - 1]) {
+                        j++;
+                    }
+                    while(k > j && nums[k] == nums[k + 1]) {
+                        k--;
+                    }
+                }
+            }
+        }
+        return ans;
+
+TC -> O(N*N) + O(N Log N)
+SC -> O(m) m = number of unique triplets

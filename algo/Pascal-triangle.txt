@@ -1,0 +1,60 @@
+Follow up questions for finding pascal's triangle
+
+1) Given Row and column find what number is at that position
+  in that pascals triangle
+
+2) Print the nth row of pascals triangle
+
+3) Print the entire pascals triangle for nth row
+
+For the first problem
+-> Formula nCr of mathematics
+  the expanded formula is n!/r! * (n - r)!
+  here the n is Row number - 1 and r is Column number - 1
+  It will iterate fully so avoid to use this
+TC -> O(n);
+
+  If you carefully observed  you will notice that n - r factorial
+  in the bottom will get cut from the top and the remaining
+  will be always the number of r factorial
+  For example
+    7C2
+    7*6*5*4*3*2*1/ (2 * 1 ) * (5*4*3*2*1)
+    7*6/2*1
+  from the above example it means that the number could be multiply
+  upto the r value when we decrease it by 1
+
+  define a function where we take n and r the outer loop will run upto r
+  the resultant will be resultant * n - i;
+  again the resultant will be resultant / i + 1
+
+TC -> O(r);
+SC -> O(n);
+
+For the second problem
+
+first row contains 1 element
+2nd row contains 2 element
+
+hence nth row contains n elements
+
+It actually can be done by using the above principle
+run a loop upto n time then each time pass the row number and column
+number
+
+Optimal way ->
+  use zero base indexing cause it will help
+  formula ->
+    ans * (row - col) / col
+
+  first take ans = 1
+  each time increase the column number by 1
+  and apply the formula
+
+TC -> O(N);
+SC -> O(1)
+
+For the third problem just use these above approach in order
+to get your suitable answers
+
+HINT : use the optimal way
