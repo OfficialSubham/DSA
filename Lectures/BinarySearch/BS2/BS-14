@@ -1,0 +1,33 @@
+In this problem I have to find the smallest divisor
+
+This problem states that i have to find the maxi of mini
+
+like you have given a threshold number
+you have to find the least possible integer by which if you divide all the numbers in the array and then add them you will get lesser than equal to the value of threshold
+
+you are trying with 1 2 3 so on and so forth 
+the maximum number to divide all the number in the array would be the maxi in the array
+
+Try to read the question carefully
+once you understand the question properly half of the problem has solved
+
+Brute ->
+  I applied simple brute force
+
+TC -> O(N*N) + O(N);
+SC -> O(1);
+
+
+Optimal ->
+  Try to use binary search on answers
+
+It pretty easy
+
+TC -> O(log2(maxi) * O(n)) + O(N);
+SC -> O(1);
+
+
+
+HINT ->
+  the ans would be from 1 to the maximum element
+  the low and high will ultimately change their polarity

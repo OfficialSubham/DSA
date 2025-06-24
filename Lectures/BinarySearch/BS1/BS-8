@@ -1,0 +1,78 @@
+I have to find out single element in the sorted array
+
+Brute ->
+  run a loop
+
+  there are three condition
+  either the pointer is in the first
+  either the pointer is in the last
+  or the pointer is in the middle
+
+  for the pointer being in the first
+    if it is not equal to the right value hence it is the single element
+
+
+  for the pointer being in the last
+    if it is not equal to the left value hence it is the single element
+
+  for the pointer being in the middle
+    if the value is not equal to both left and right element hence it is the single element
+
+  THIS can also be done using XOR method
+
+
+Optimal ->
+  Using binary search
+
+  on making the array on pen and paper
+  you will notice that number start from even odd formation
+  like 1 1 2 2
+  but once it reaches the single element the formation changes to odd even
+  like 1 1 2 2 3 3 4 5 5 6 6
+
+
+  Once it changes to odd even then it means that the number is in the left half
+
+  if it is even odd then the number is in the right half
+
+  CHECKS
+
+  During binary search there are some  edge case while checking
+  so start from the second index and 2nd last index
+
+  check weather there is 1 element in the array if so return it
+  check if the first and the last element is not equal to low and high
+  if not then return it it will be the single element
+
+  now check the middle element both side not equal or one of them is equal
+  if one of them is equal then just check chech which portion is odd or even
+
+  first check which element is equal
+  there will be two condition either the left or the right
+  if left is equal and if the mid is in odd index and the left is in even
+  hence the element is in right
+
+  vice versa for right think think and think
+
+TC -> O(log2 N);
+SC -> O(1);
+
+  CODE ->
+      int n = nums.size();
+        int low = 1;
+        int high = n - 2;
+        if(n == 1) return nums[0];
+        if(nums[low] != nums[0]) return nums[0];
+        if(nums[high] != nums[n - 1]) return nums[n - 1];
+        while(low <= high) {
+            int mid = (low + high)/ 2;
+            if(nums[mid] != nums[mid + 1] && nums[mid] != nums[mid - 1]) return nums[mid];
+            //either you are standing on the odd or even
+            if((mid % 2==0 && nums[mid] == nums[mid + 1]) || (mid % 2 == 1 && nums[mid] == nums[mid - 1])) {
+                low = mid + 1;
+            }
+            else {
+                high = mid - 1;
+            }
+        }
+        return -1;

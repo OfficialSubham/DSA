@@ -1,0 +1,52 @@
+Lower Bound
+
+I have to find a smallest number which is greater or equal to the target
+using Binary Search
+
+Use binary search
+You can find the number to me greater in the first half but you are not sure that it is your smalest nubmer so just store it in a variable
+
+As you have to return the lowest indx here
+
+What i have understand is
+
+  use a binary search over the array
+  the thought process would be
+  if the current number is greater then the target
+  then this might be you answer
+  so store it in ans
+  if not then loop through the right, set low to the next of mid
+  complete the binary search until the low pointer becomes greater than the high atlast return the ans
+
+TC -> O(log2 N);
+SC -> O(1);
+
+Upper Bound
+
+There is no = any further
+
+i.e. you have to find the smallest indx but the number should be the least greatest number than the target
+
+Just change the >= to > from the lower bound method
+
+TC -> O(Log2 N);
+SC -> O(1);
+
+Floor and Ceil in sorted array
+
+Floor -> The largest number in the array which is lesser than equal to the given number
+
+Ceil -> The smallest number in the  array which is greater than equal to the given number
+
+arr -> [10, 20, 30, 40]
+x = 25
+floor = 20;
+ceil = 30;
+
+use lower bound to find ceil cause it can be find by that
+
+For Floor
+  just like lower bound
+  as you have to find the largest element
+  you just have to eleminate the left as the left is always contain smaller
+  but when the element in the mid is greater then the target then move your high to mid - 1

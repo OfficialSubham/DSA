@@ -1,0 +1,23 @@
+Search in a rotated sorted array [For unique elements]
+
+
+Brute ->
+  Use linear search
+
+TC -> O(n);
+SC -> O(1);
+
+Optimal ->
+  use binary search but each time check these things in order to identify
+  which half is sorted
+
+  if the number at low is lesser than equal to mid then it will be the sorted one
+  then check there weather the target value lie between the mid and low
+  if it lies there then move high = mid - 1;
+  if not then it must be on the right part
+  hence move the low to mid + 1;
+  if the left part is not sorted then check weather the number lies in the sorted part if so then move the low = mid + 1;
+  if not then it must be lies on the unsorted part then just move the high to mid - 1
+
+TC -> O(log2 n);
+SC -> O(1);

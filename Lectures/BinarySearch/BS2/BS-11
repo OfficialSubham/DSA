@@ -1,0 +1,26 @@
+In this problem i have to find out the nth root of an integer
+
+like n=3 for m = 27 is 3root27 = 3
+
+if you won't able to find its nth root then return -1
+
+Do this using binary search
+
+Brute ->
+  Do a linear search
+
+TC -> O(n);
+SC -> O(1);
+
+Optimal ->
+  Use binay search just like the ans in the previous questions to find out the root 
+  everytime store the ans and al last just check weather the number you got is actually the nth power if so return it or else return -1
+
+  In the function where you get the int of your number's with the given power
+  check each time where it crosses the m once it crosses it return that value cause once it crosses it you don't want to take that
+
+  the test case will fail so take long long
+
+TC -> O(log2 m) * O(log2 n)(for getting the power each time)
+
+

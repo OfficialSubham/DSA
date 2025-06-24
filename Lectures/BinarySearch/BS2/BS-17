@@ -1,0 +1,81 @@
+Agressive Cows -> (min dist btwn cows) is man
+
+From this problem BS will be pretty difficult
+the Pattern will be like I have to find minimum of maximum
+or maximum of minimum
+
+PS -> You have given an array which contains distance coordinates
+
+you will also given cow number
+
+You have to place the cows in such a way that the minimum distance between any of the two cows is the maximum
+
+According to the problem i have to place all the cows in such a way that
+distance between any of the two cows be minimum
+
+from the min and max i wanted to say that
+
+after placing  all the cows you will get a distance but
+the distance must be maximum
+like you will not get a maximum above that but but but
+all the cows will must have that minimum distance
+
+EG -> there  are 4 cows
+a <- 4 -> b <- 3 -> c <- 3 -> d
+
+the minimum distance between them is 3 and it is the max distance
+
+in binary search
+start with left = 1
+cause your minimum distance would be one
+and right with stalls[n-1] stalls[0]
+cause your maximum distance would be start from 0th position upto the nth one
+keep the distance as 1
+do the binary search
+
+define another function where you check this distance is possible or not
+there check each time whether this position is suitable to place the cow
+
+if so place it and make it as the last index placed cow
+
+think about this properly
+
+CODE -> bool checkPlacingCowsPossible(vector<int> stalls, int k, int dis) {
+    int placedCows = 0;
+    int lastCowPlaceIdx = 0;
+    for(int i = 0; i < stalls.size(); i++) {
+        if(i == 0) {
+            placedCows++;
+        }
+        if(placedCows == k) return true;
+        if((stalls[i] - stalls[lastCowPlaceIdx]) >= dis) {
+            lastCowPlaceIdx = i;
+            placedCows++;
+        }
+    }
+    if(placedCows < k) return false;
+    return true;
+}
+
+int aggressiveCows(vector<int> &stalls, int k)
+{
+    int n = stalls.size();
+    sort(stalls.begin(), stalls.end());
+    int left = 1;
+    int right = stalls[n - 1] - stalls[0];
+    // int dis = 0;
+    while(left <= right) {
+        int mid = (left + right)/2;
+        if(checkPlacingCowsPossible(stalls, k, mid)) {
+            // dis = mid;
+            left = mid+1;
+        }
+        else {
+            right = mid - 1;
+        }
+    }
+    return left - 1;
+}
+
+TC -> O(NlogN) + O(log2 N) * O(n);
+SC -> O(1);

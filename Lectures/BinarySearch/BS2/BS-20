@@ -1,0 +1,7 @@
+In This problem i have to find the mini distance between the gasstation which is also the maximum distance between the two consecutive gas station
+
+I have given an array which contains the points on the +ve x axis
+and some number of new gas station
+now I have to place the new gas station in between the previous gas station but i have to maintain the distance between those gas station in such a way that after i placed all the gas station, the minimum distance between the two consecutive gas station is the maximum possible distance to place all the gas station
+
+The Number can also within 

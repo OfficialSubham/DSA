@@ -1,0 +1,11 @@
+Find the minimum in the rotated sorted  array
+
+From observation you will able to find that the sorted half of the array
+as it is rotated may or may not contain the smallest element
+
+so from the previos problems you now able to find which portion of the array is sorted now you have to compare it with ans weather the low th element is much smaller than the ans as the array is sorted hence the low th element will be the smallest one
+
+now there is no poit to check the sorted portion as we have the smallest one of that portion how check for the other half
+
+TC -> O(log2 N);
+SC -> O(1);

@@ -1,0 +1,72 @@
+1539. Kth Missing Positive Number
+
+In this problem i have to find the kth missing number
+
+missing number have different position and according to that position
+i have to find the kth position
+
+Brute ->
+  Only one loop is needed
+  Try to visualize that
+  first consider that the number at kth position is missing
+  while looping through the array
+  if you found out that this number is falling withing the kth position
+  then it means that the kth ans would be one place ahead
+
+TC -> O(n);
+SC -> O(1);
+
+Optimal ->
+  Use BS
+
+  You will find a pattern that if we start the array with 1
+  then while searching through the array the missingNumber
+  will always be the current number in the array - what will should be in that position
+  start from 0 to the last index just take the number
+  first specify that if the k is lesser than the first index then just return k
+  if not
+  then do the binary search
+  where you are finding the missing number if the it is lesser than the
+  finding one
+  the just move the left pointer else move the right pointer
+  at last you would see that they switch their polarity
+
+  firstly
+  like left will be at lower less missing number whereas right will be at
+  higher missing number
+  at last
+  the are in different position
+
+  but right will always be closer to the missing number
+  so you just have to add more (which is how much is missing) with the number in the array at position right
+
+  which would be like
+
+  arr[right] + (more)
+
+  more -> k - (missing)
+  missing -> arr[right] - (right + 1)
+
+
+TC -> O(log2 N);
+SC -> O(1);
+
+CODE ->
+
+      int findKthPositive(vector<int>& arr, int k) {
+        int n = arr.size();
+        int left = 0;
+        int right = n-1;
+        if(arr[left] > k )return k;
+        while(left <= right) {
+            int mid = (left + right)/2;
+            int missingNumber = arr[mid] - (mid + 1);
+            if(k > missingNumber) {
+                left = mid + 1;
+            }
+            else {
+                right = mid - 1;
+            }
+        }
+        return (arr[right] + (k - (arr[right] - (right + 1))));
+    }

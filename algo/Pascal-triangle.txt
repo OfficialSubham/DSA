@@ -58,3 +58,19 @@ For the third problem just use these above approach in order
 to get your suitable answers
 
 HINT : use the optimal way
+
+Edited one ->
+
+  If you are not able to understand it is common
+  This is the past me who is also forget so don't worry
+  just try to understand this
+
+  if you carefully notice the pattern you will find out
+  we have to generate the first col by us cause it actually has no pattern
+  but from column 2 onwards there is a pattern
+  it is going in this way
+  the previous element multiply by the row - col where the col has 0 base
+  indexing then divide with the col then it will give the current number in the
+  row but you have to store this as it will require in the next number
+  if you still not able to understand just look at the image in the striver's
+  DSA sheet

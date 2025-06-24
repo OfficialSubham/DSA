@@ -1,0 +1,85 @@
+Allocate Books or Book allocation
+
+You have given an array of pages and number of students
+
+book allocation must me in a contagious manner
+each student atleast get one book
+each book allocated to only one student
+
+you have to give the books in such a way
+that the student who has the maximum number of pages
+is the minumum number of pages
+
+like any other sum exceeds that number so that is the minumum in all the maximum
+
+at any case if the number of students exceeds the number of books return -1
+
+you have to think
+
+this is like you have to first know the maximum number of pages
+then try to assign all the pages to each student
+once the array is completed check how many number of students you have
+assigned if it exceeds the number of actual student then increasse
+the maximum by 1 once you get that all the books are distributed
+hence you find out that minimum number
+
+the maximum would be the sum of the array
+because if there is one student he will get the all book
+hence the ans lies between the maximum number in the array and the sum of the whole array
+
+TC -> O(log2 (sum - max)) * O(n);
+SC -> O(1);
+
+CODE ->
+
+  int numOfStudents(vector<int> arr, int pages) {
+    int students = 0;
+    int currentStudentPages = 0;
+    for(int i = 0; i < arr.size(); i++) {
+        if(students == 0) {
+            students++;
+            currentStudentPages = arr[i];
+        }
+        else if(currentStudentPages + arr[i] <= pages) {
+            currentStudentPages += arr[i];
+        }
+        else {
+            students++;
+            currentStudentPages = arr[i];
+        }
+        
+    }
+    return students;
+}
+
+int findPages(vector<int>& arr, int n, int m) {
+    // Write your code here.
+    int low = INT_MIN;
+    int sum = 0;
+    int ans = 0;
+    if(n < m) return -1;
+    for(int i = 0; i < n; i++) {
+        sum += arr[i];
+        low = max(arr[i], low);
+    }
+
+    int left = low;
+    int right = sum;
+    while(left <= right) {
+        int pages = (left + right)/2;
+        int cntStudents = numOfStudents(arr, pages);
+        if(cntStudents > m) {
+            left = pages + 1;
+        }
+        else {
+            ans = pages;
+            right = pages - 1;
+        }
+    }
+
+    // for(int pages = low; pages <= sum; pages++) {
+    //     int cntStudents = numOfStudents(arr, pages);
+    //     if(cntStudents == m) return pages;
+    // }
+    return ans;
+}

@@ -1,0 +1,20 @@
+I have to find out the squareroot of a given number using binary search
+
+If you linearly travis of all number from 1 until you reach
+the greater or equal to the number of squareroot
+
+if it becomes equal return it
+if it becomes greater than return the previous number
+
+Just do binary search in an imaginary array
+
+like take low as 1
+high as the given number/2
+
+if the square of mid gives a value greater than the number
+then eliminate the right
+
+use maybe method where you store the number in the ans
+if the square of mid is lesser than the given then just store it in the ans
+
+high will always be storing my answer

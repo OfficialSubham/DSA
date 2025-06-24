@@ -1,0 +1,16 @@
+2643. Row With Maximum Ones
+
+Use your brain to find the brute force
+
+TC -> O(N*N);
+SC -> O(1);
+
+Optimal ->
+
+You cannot optimise the linear travasing
+but you can optimise the single array travasing
+
+just do BS on each array
+
+TC -> O(NlogN);
+SC -> O(1);

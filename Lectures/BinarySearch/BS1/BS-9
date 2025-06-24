@@ -1,0 +1,30 @@
+In this problem i have to find peak of an array
+
+peak is a number which is greater than its both side number
+if the array contains multiple peak than just return any one of them
+
+Brute ->
+  Linear search but there is a trick of only one if statement
+
+  if((i == 0 || nums[i] > nums[i - 1])&&(i == n - 1 || nums[i] > nums[i+1])) {
+                return i;
+            }
+  it is a easily understandable code try
+
+TC -> O(N);
+SC -> O(1);
+
+Optimal ->
+  if we just have one peak
+  either peak on left side
+  either peak on right side
+  mid is in the peak
+
+  if the mid is on increasing curve
+  i.e. the left element is smaller
+  then the peak will always be on right
+
+  or vice versa
+
+TC -> O(log2 n);
+SC -> O(1);

@@ -1,0 +1,20 @@
+Painter's Partition and Split Array - Largest Sum
+
+Both the Problems are exactly same
+
+Painter Partition problem state
+  You have given an array and number of painters
+  you have to split the array according to the number of painters
+  and have to findout that how can i split the array in such a way
+  that the maximum number of days taking by a painter
+  is the minimum from the other maximum
+
+Split array largest sum state
+  You have given an array and a number k
+  you have to split the array into k sub arrays
+  and then you have to find out the maximum sum of all subarrays
+  but the maximum should be minimum
+
+  min(maximum);
+
+This problem is also same as the allocate books just follow that

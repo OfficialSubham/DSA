@@ -1,0 +1,20 @@
+In this i just have to return a boolean
+
+wheather the number is present in the array
+
+Brute -> linear search
+
+TC -> O(n);
+SC -> O(1);
+
+Optimal ->
+
+  Use binary search just like BS-4 in sorted 1 problem
+
+  but there is a chache
+  the array has duplicates
+  hence you also have to check weather
+  all the number in low high and mid are equal if so and if you are checking this this means the mid is not the answer and as they are equal and not the answer so just move the low pointer bit high and high pointer bit low
+
+TC -> O(log2 N) worst case O(n/2) when you are shrinking;
+SC -> O(1);

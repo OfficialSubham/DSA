@@ -1,0 +1,16 @@
+Find out how many times the array has been rotated
+
+if you carefully notice many rotated array you could easily find a pattern
+
+There is a relation btw the idx and minimum number in the  array
+
+so you just have to find the minimum number in the array and ultimately return the idx of that number as it will be the times rotated number
+
+if the  array contain duplicate
+
+just apply the thought process of rotated sorted array II
+
+where mid high ans low same so increase low and derease the high until
+
+TC -> O(log2 N);
+SC -> O(1);

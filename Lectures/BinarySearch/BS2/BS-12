@@ -1,0 +1,35 @@
+875. Problem in LEETCODE
+
+KOKO eating Bananas problem
+
+we have given piles like array of multiple bananas
+
+and we have to find the minimum number of speed of eating bananas by koko
+so that he can finish all the bananas within the deadline
+Yeah we had also given a deadline of eating bananas
+
+We have to take the ceit value of eating banana
+
+like if speed of koko if 2 bananas/hr then if there is 3 bananas
+then we know it will take 1.5hr but we have to consider it as 2 hr
+
+
+
+Brute ->
+ Do a linear search check each time from 1 to upto a certain number
+ of eating banana rate each time increase it do this until
+ it becomes lesser than equal to deadline
+
+Optimal ->
+  first find the max in the piles
+  it will be you range of eating bananas per hour
+  then define another function which will give you time taken to complete to eat that much banana
+  do that function in a binary search
+  whose range is from 0 upto the the maxi
+  subtle bug take piles[i] + hr - 1 / hr in order to ceil the value
+  cause every double and is not working
+  use your brain and try to find out how can i get the maximum but also
+  lesser than the deadline
+
+TC -> O(n) * O(log2 maximumElement);
+SC -> O(1);

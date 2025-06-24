@@ -1,0 +1,58 @@
+Least Capacity to ship packages within D days
+
+you have given an array which contains n items
+in each indexes weight of the item is there.
+
+the ship can only travel once in a day
+you have to find out
+with atleast weight the ship could transfer all the packages
+
+
+It is same as the book allocation problem
+
+CODE ->
+  class Solution {
+public:
+    int daysTaking(vector<int> weights, int weight) {
+        int requiredDay = 0;
+        int lastWeight = 0;
+        for(int i = 0; i < weights.size(); i++) {
+            if(i == 0) {
+                requiredDay++;
+                lastWeight = weights[i];
+            }
+            else if(lastWeight + weights[i] <= weight) {
+                lastWeight += weights[i];
+            }
+            else {
+                lastWeight = weights[i];
+                requiredDay++;
+            }
+        }
+        return requiredDay;
+    }
+
+    int shipWithinDays(vector<int>& weights, int days) {
+        int maxi = INT_MIN;
+        int sum = 0;
+        int n = weights.size();
+        for(int i = 0; i < n; i++) {
+            maxi = max(maxi, weights[i]);
+            sum += weights[i];
+        }
+        int low = maxi;
+        int high = sum;
+        int ans = INT_MAX;
+        while(low <= high) {
+            int weightInOneDay = (high + low)/2;
+            int totalDays = daysTaking(weights, weightInOneDay);
+            if(totalDays <= days) {
+                high = weightInOneDay - 1;
+            }
+            else {
+                low = weightInOneDay + 1;
+            }
+        }
+        return low;
+    }
+};

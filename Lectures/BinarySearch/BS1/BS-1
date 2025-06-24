@@ -1,0 +1,28 @@
+Binary Search to find X in sorted array
+
+Binary search is always can be done in a sorted things
+
+This algo checks by visiting half of the arry
+It is like after visiting half of the array if the given number is smaller than the current number then check the left half or else the right half this is how the algo works
+
+Thaught process
+
+
+Take three variable
+low mid and high
+
+each time make a mid which is low + high / 2
+
+if the target is equal to mid then return the mid
+if the target is lesser than the mid
+i.e. the left portion is also lesser hence check from the next upto the high
+if the target is greater then the mid value then just deacrease the low
+to one lesser than the mid as the right portion is also bigger
+
+this is possible only because the array is sorted
+
+use recursion or while loop to solve this problem
+very easy
+
+TC -> O(Log2 N);
+SC -> O(1);

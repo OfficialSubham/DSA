@@ -1,0 +1,35 @@
+Find the first and the last occurence fo a given element
+
+It can be found using lower bound and upper bound
+
+what we can find out here that
+
+lower bound return the least index number which actually be the starting index
+
+where as upper bound return the least of the number which is greater than the number hence we have to substract - 1 from it cause it will be the nxt index
+
+There is a edge case where the number will not be there in the array
+
+so in that case i have to check the number which has been returned is
+either in the array or the return number is not equal to the target
+
+TC -> 2 * O(log N);
+SC -> O(1);
+
+Plain Binary search code
+
+two binary search function
+one in order to  find the first index and other for last index
+
+for first index just use plain binary sears but once you get the number
+then it might not be the first one so eleminate the right and find towards left
+
+do the vice versa for the last
+
+TC -> 2 * O(log n);
+SC -> O(1);
+
+
+For counting the occurence of a number use the same method and then
+just return the first - last + 1
+it will be its occurence

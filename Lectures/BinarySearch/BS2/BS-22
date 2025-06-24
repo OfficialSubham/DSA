@@ -1,0 +1,7 @@
+This problem is same as the previous one you just have to count the number
+
+
+Check the previous problem
+
+TC -> O(log(m + n));
+SC -> O(1);

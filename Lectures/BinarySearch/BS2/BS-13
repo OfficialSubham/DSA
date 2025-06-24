@@ -1,0 +1,34 @@
+In this problem you have been given an array
+which will be consisting blooming day of flowers of n flower
+
+You have also given m ans k
+
+where m is number of bookeh you have to make
+and k is number of flowers consisting in each bookeh
+
+so you have to find the minimun number of days to make that bookeh
+
+all of the flower will bloom in the maximum day
+
+but you have to return the minimum number of days
+
+There is a cache cause you also have to take the adjacent flowers
+
+The days will mainly range from the minimum day and the maximum
+
+use binary search each time loop through the array and increase the counter
+
+counter stores how many flowers had bloomed 
+
+once it get to a unbloomed flower make the counter to zero but
+before making it to zero divide it with  the number of flowers you required to make 1 bookeh
+
+i.e. you will make that much bookeh
+
+but but but at last check weather the number of bookeh is equal to the finding one if so then return that day else do your binary search
+
+remember that once you find the ans try to minimize the day
+
+TC -> O(N) + O(log2 (max - min + 1)) * O(N);
+SC -> O(1);
+
