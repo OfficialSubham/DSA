@@ -1,0 +1,39 @@
+Brute ->
+  Think it like this way first the string in this manner like if this string does not exists just keep a track on the hash map this is how it can be solved at last just match them up
+
+TC -> O(2N);
+SC -> O(N);
+
+Optimal ->
+  In this way you have to check weather the char is already in the map
+  if yes then check weather the current value in the map is equal
+  to the value of the other char then continue else return false
+
+  In both also keep a track of the added char from the second string
+
+TC -> O(N);
+SC -> O(1);
+
+Optimal CODE ->
+  unordered_map<char, char> hashMap;
+        unordered_set<char> hashSet;
+
+        int n1 = s.size();
+        int n2 = t.size();
+        if(n1 != n2) return false;
+
+        for(int i = 0; i < n1; i++) {
+            if(hashMap.find(s[i]) != hashMap.end()) {
+                if(hashMap[s[i]] != t[i]) return false;
+            }
+            else if(hashSet.find(t[i]) == hashSet.end()) {
+                hashSet.insert(t[i]);
+                hashMap[s[i]] = t[i];
+            }
+            else {
+                return false;
+            }
+        }
+        return true;
+
+
