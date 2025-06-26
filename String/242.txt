@@ -1,0 +1,40 @@
+In this problem i have to find a valid anagram
+
+Anagram is a word which can be rearrange to make a another word
+
+Now i have to find weather the making the second word is possible or not
+
+Brute ->
+  use two hash map and then try to make a frequency counter of all the char
+  ultimately if all the freq match in both the hash then it is possible to make the second word with it
+
+TC -> O(2N);
+SC -> O(2N);
+
+Optimal ->
+  Use only one hash then increment the freq of one char and if you find the same char in the other word then just decrease the freq
+  ultimately if there is something which is still remaining in the hash
+  then the word will not be possible
+
+TC -> O(N);
+SC -> O(N);
+
+
+Code ->
+     bool isAnagram(string s, string t) {
+        int n1 = s.size();
+        int n2 = t.size();
+        if(n1 != n2) return false;
+
+        unordered_map<char, int> hash1Map;
+
+        for(int i = 0; i < n1; i++) {
+            hash1Map[s[i]]++;
+            hash1Map[t[i]]--;
+        }
+        for(auto c : hash1Map) {
+            if(c.second != 0) return false;
+        }
+        return true;
+
+    } 
