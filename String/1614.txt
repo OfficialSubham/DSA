@@ -1,0 +1,28 @@
+In this problem i have to find out the maximum nesting depth of parentheses
+
+Brute/Optimal ->
+  Just think it like this (I solve this in one try using my own thought
+  process) just take two variable where one is storing the maxi and other
+  storing the current num of parentheses
+
+Like think it in this way if it is a opening bracket then increase the current cnt and check weather it is greater than maxi
+else if it is a closing bracket then just decrease the current;
+
+TC -> O(N);
+SC -> O(1);
+
+Code ->
+   int maxDepth(string s) {
+        int current = 0;
+        int maxi = 0;
+        for(int i = 0; i < s.size(); i++) {
+            if(s[i] == '(') {
+                current++;
+                maxi = max(current, maxi);
+            }
+            else if(s[i] == ')') {
+                current--;
+            }
+        }
+        return maxi;
+    }
