@@ -1,0 +1,52 @@
+In this problem i have to find out the longest palindromic substring
+
+Brute ->
+  just think this like the array problem and try to visualize how to find
+  all possible numbers
+  It can also be solve in this manner
+
+TC -> O(n*n*n);
+SC -> O(1);
+
+Optimal ->
+  consider each index to be the center
+
+  for odd and even
+
+  just go with two pointers on the left and right side
+  until they are not matching then just get the value of the string from
+  the substr formula
+
+TC -> O(n*n);
+SC -> O(1);
+
+
+Code ->
+   string longestPalindrome(string s) {
+        int n = s.size();
+        string ans = "";
+        for(int i = 0; i < s.size(); i++) {
+            int j = i;
+            int k = i;
+            while(j >= 0 && k < n && s[j] == s[k]) {
+                j--;
+                k++;
+            }
+            if(ans.size() < (k - j - 1)) {
+                ans = s.substr(j + 1, k - j - 1);
+            }
+
+            int l = i;
+            int m = i+1;
+            while(l >= 0 && m < n && s[l] == s[m]) {
+                l--;
+                m++;
+            }
+            if(ans.size() < (m - l - 1)) {
+                ans = s.substr(l + 1, m - l - 1);
+            }
+
+        }
+        return ans;
+
+    }
