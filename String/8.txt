@@ -1,0 +1,36 @@
+In this problem i have given a string and i have to convert it to a 32 bit
+number
+This question is very neatly elaborated in the problem
+
+You just have to think it like the test case nothing more
+
+TC -> O(n);
+SC -> O(1);
+
+Code ->
+  int myAtoi(string s) {
+        long long ans = 0;
+        int n = s.size();
+        bool started = false;
+        char sign = '+';
+        for(int i = 0; i < n; i++) {
+            if(s[i] == ' ' && !started) continue;
+            else if(s[i] == ' ' && started) break;
+            if((s[i] == '-' || s[i] == '+') && !started) {
+                sign = s[i];
+                started = true;
+                continue;
+            }
+            else if((s[i] == '-' || s[i] == '+') && started) break;
+            if(!isdigit(s[i])) break;
+            started = true;
+            int digit = s[i] - '0';
+            if(ans > INT_MAX/10 || (ans == INT_MAX/10 && digit > (sign == '-' ? 8 : 7))) {
+                return sign == '-' ? INT_MIN : INT_MAX;
+            }
+            ans *= 10;
+            ans += digit;
+        }
+        return sign == '-' ? -ans : ans;
+        
+    }
