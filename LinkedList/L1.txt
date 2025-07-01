@@ -1,0 +1,65 @@
+In this lecture we will understand about linked list
+
+Linked list is just a kind of array which stores any thing you want but you don't know the actual location of that in the heap memory
+
+Cause each element are in different position they are not in contagious manner just like array.
+
+Each element contains two things its data and its next element's memory address
+
+The first element is called as the head of the linked list
+
+Linked list is used in Stacks and queues
+always used in browser
+
+In browser the arrow of left and right is a linked list cause it stores the pages you had been visited in the current tab
+
+It is 1D linked list
+
+Structure of Linked List
+
+struct Node {
+  int data;
+  Node* next;
+
+  Node(int data1, Node* next1) {
+    data = data1;
+    next = next1;
+  }
+
+}
+
+Memory ->
+  Linked List in 32 bit system
+    Takes 4 byte for data and 4 byte for next
+   in 64 bit system
+    Takes 4 byte for data and 8 byte for next
+  Not matter at all
+
+Difference between Node and Node*
+  in Node you have to access data use .data
+  cause it will just consider as a object
+
+  In Node* you have to use new Node(int, ptr)
+  it is a full fledged linked list so in order to access data
+  you have to do ->data
+
+How to convert an array to a linked list
+
+
+The code was written on code file
+You just have to remember couple of points
+HEAD -> This will points to the first thing on the array;
+MOVER -> This will points to the current position on the linked list
+          Once new node forms it will point to that
+TEMP -> It is a new node which will create each time on looping through  the array
+
+
+How to iterate through the linked list
+
+It can be printed via while loop but remember that you should not move
+head make a temp which points from the head cause once you lost the head
+there is no way go back for now
+
+How to find the length of the LL
+
+Just count for how much it moves until its pointer becomes null
