@@ -1,0 +1,6 @@
+Deletion->
+  Head of linked list
+  Move the head to the next
+  but the head will still there
+  use free function to remove the head after storing it in a temp 
+  move the head then use free
